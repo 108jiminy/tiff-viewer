@@ -1,11 +1,3 @@
-// DOM要素の参照を取得
-const fileInput = document.getElementById("fileInput");
-const tiffCanvas = document.getElementById("tiffCanvas");
-const prevPageButton = document.getElementById("prevPage");
-const nextPageButton = document.getElementById("nextPage");
-const savePdfButton = document.getElementById("savePdf");
-const pageInfo = document.getElementById("pageInfo");
-
 // TIFFインスタンスとページ情報
 let tiffInstance = null;
 let currentPage = 0;
