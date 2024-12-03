@@ -44,6 +44,6 @@ html, body {
     padding: 10px 0; /* 上下の余白 */
     background-color: #ffffff; /* ボタン背景色 */
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上部の薄い影 */
-    position: sticky; /* スマホ対応で固定 */
+    position: fixed; /* スマホ対応で固定 */
     bottom: 0;
 }
