@@ -24,26 +24,26 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* 上下で空間を均等に分ける */
+    justify-content: flex-start;
     position: relative;
-    padding-bottom: 50px; /* ボタンのスペースを確保 */
     overflow: hidden;
-    box-sizing: border-box;
 }
 
 #tiffCanvas {
+    flex: 1 1 auto; /* 画像が余白なく広がるよう設定 */
     width: 100%; /* 横幅を親要素に収める */
-    height: 100%; /* 縦幅を親要素に収める */
+    height: calc(100% - 60px); /* ボタン領域を除いた高さ */
     object-fit: contain; /* アスペクト比を保持 */
-    background-color: #f0f0f0; /* 背景色（必要に応じて調整） */
+    background-color: #f0f0f0; /* 背景色 */
 }
 
 #controls {
-    position: absolute; /* 位置を固定 */
-    bottom: 0; /* 親要素の下部に固定 */
-    width: 100%; /* 横幅を親要素に合わせる */
+    flex: 0 0 auto; /* 固定高さ */
+    width: 100%; /* 横幅を親要素に収める */
     text-align: center; /* ボタンを中央揃え */
-    padding: 10px 0; /* 上下に余白を追加 */
+    padding: 10px 0; /* 上下の余白 */
     background-color: #ffffff; /* ボタン背景色 */
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 上部の薄い影 */
+    position: sticky; /* スマホ対応で固定 */
+    bottom: 0;
 }
