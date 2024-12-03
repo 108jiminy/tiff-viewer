@@ -42,11 +42,24 @@ function loadTiff(arrayBuffer) {
 // 現在のページを描画
 function renderPage() {
     if (!tiffInstance) return;
+
     tiffInstance.setDirectory(currentPage);
     const canvas = tiffInstance.toCanvas();
-    tiffCanvas.width = canvas.width;
-    tiffCanvas.height = canvas.height;
-    tiffCanvas.getContext("2d").drawImage(canvas, 0, 0);
+    const context = tiffCanvas.getContext("2d");
+
+    // キャンバスのアスペクト比を保持
+    const imageWidth = canvas.width;
+    const imageHeight = canvas.height;
+
+    // キャンバスのサイズを元の画像サイズに基づいて設定
+    tiffCanvas.width = imageWidth;
+    tiffCanvas.height = imageHeight;
+
+    // 描画
+    context.clearRect(0, 0, imageWidth, imageHeight);
+    context.drawImage(canvas, 0, 0, imageWidth, imageHeight);
+
+    // ページ情報を更新
     pageInfo.textContent = `Page ${currentPage + 1} of ${totalPages}`;
 }
 
